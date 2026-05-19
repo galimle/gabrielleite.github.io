@@ -1,0 +1,26 @@
+# Site settings
+title: Gabriel Lima Leite
+description: Senior Software Development Engineer — Distributed Systems & Cloud Architecture
+url: "https://gabrielleite.dev"
+baseurl: ""
+
+# Author
+author:
+  name: Gabriel Lima Leite
+  email: contact@gabrielleite.dev
+  linkedin: gabriel-lima-leite
+  github: galimle
+  location: Berlin, Germany
+
+# Build settings
+markdown: kramdown
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
