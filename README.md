@@ -1,45 +1,64 @@
-# Gabriel Lima Leite — Personal Profile Site
+# gabrielleite.dev
 
-A single-page professional profile built with Jekyll and GitHub Pages.
+Personal portfolio site for Gabriel Lima Leite — Senior Software Development Engineer at Amazon Web Services (Redshift), Berlin.
 
-## 🚀 Setup
+Live at **[gabrielleite.dev](https://gabrielleite.dev)**
 
-### 1. Create the GitHub repository
+## Stack
 
-The repo is already at `galimle/gabrielleite.github.io`.
+- **Jekyll** — static site generator
+- **GitHub Pages** — hosting via `galimle/gabrielleite.github.io`
+- **GitHub Actions** — CI/CD, auto-deploys on push to `master`
+- **Custom dark theme** — navy/green palette, no external CSS framework
+- **Custom domain** — `gabrielleite.dev` via CNAME + Route53
 
-Push the contents of this folder to the root of the **`master`** branch, replacing the existing files.
+## Local development
 
-### 2. GitHub Pages settings
-
-Go to **Settings → Pages**, confirm Source is **Deploy from a branch**, branch `master`, root `/`. The site will be served at **https://gabrielleite.dev** (your CNAME is already included).
-
-### 4. Local development (optional)
+Requires Ruby 3.2+ and Bundler.
 
 ```bash
-gem install bundler
 bundle install
 bundle exec jekyll serve
-# → open http://localhost:4000
+# → http://localhost:4000
 ```
 
-## 📁 Structure
+## Structure
 
 ```
 .
-├── _config.yml          # Site config, theme, metadata
+├── _config.yml              # Site settings, author info, plugins
 ├── _layouts/
-│   └── default.html     # Custom layout (overrides theme header)
+│   └── default.html         # Base HTML layout, copy-to-clipboard email script
 ├── assets/
 │   └── css/
-│       └── style.scss   # All custom styles (dark theme)
-├── index.md             # Main page content
-├── Gemfile              # Ruby dependencies
-└── README.md
+│       └── style.scss       # All styles — variables, layout, components
+├── education/
+│   └── index.md             # Full curriculum page (/education)
+├── index.md                 # Main single-page site
+├── Gemfile                  # Ruby dependencies (github-pages, jekyll-remote-theme)
+└── .github/
+    └── workflows/
+        └── jekyll.yml       # Build + deploy workflow
 ```
 
-## ✏️ Customisation
+## Sections
 
-- **Add a project**: Copy a `<div class="project-card">` block in `index.md` and fill in details.
-- **Change colours**: Edit CSS variables in `assets/css/style.scss` (`:root` block).
-- **Add a GitHub link**: Replace the `↗` LinkedIn fallback in project cards with your GitHub repo URL.
+| Section | id | Notes |
+|---|---|---|
+| Hero | `#hero` | Name, title, summary, CTA buttons |
+| Skills | `#about` | 4 skill cards |
+| Experience | `#experience` | 5 roles with highlights and tech tags |
+| Projects | `#projects` | Split: Professional / Personal |
+| Education | `#education` | Summary cards linking to `/education` |
+| Languages | `#languages` | Portuguese, English, Spanish, German |
+| Contact | `#contact` | Copy-to-clipboard email |
+
+## Common edits
+
+**Add a project** — copy a `<div class="project-card">` block in `index.md`.
+
+**Update experience** — edit the relevant `<div class="exp-item">` in `index.md`.
+
+**Change colours** — edit CSS variables in `assets/css/style.scss` (`:root` block).
+
+**Update curriculum** — edit `education/index.md`.
